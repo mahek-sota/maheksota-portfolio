@@ -1,0 +1,862 @@
+/* General Body Styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Ensure all elements use border-box sizing */
+}
+
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #2e3440;
+  color: #d8dee9;
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+hr{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #3b4252;
+  color: #d8dee9;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* Ensure content does not overflow */
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d8dee9;
+  text-decoration: none;
+}
+
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  color: #d8dee9;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Navbar Links */
+.navbar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Hide overflow */
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  color: #d8dee9;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 5px 10px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  font-weight: 1000;
+}
+
+/* .top-img{
+  width: 10rem;
+  height: 10rem;
+} */
+
+.nav-link:hover {
+  color: #81a1c1; /* Slightly lighter color on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .navbar-nav {
+    gap: 10px; /* Adjust gap for smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-nav {
+    gap: 5px; /* Further reduce gap for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #3b4252;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    max-height: calc(100vh - 60px); /* Prevent overflow outside viewport */
+  }
+
+  .navbar-nav.open {
+    display: flex;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 15px; /* Increase padding for touch screens */
+    font-size: 1.2rem; /* Increase font size for readability */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-nav .nav-link {
+    font-size: 1rem; /* Adjust font size for very small screens */
+  }
+}
+
+/* Container for the entire page */
+.cont {
+  background: #2e3440;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px; /* Match this width with .navbar-container */
+  margin: 0 auto; /* Center the content */
+  min-height: 100vh;
+}
+
+/* Center-aligned sections with uniform color */
+.centered {
+  color: #d8dee9;
+  font-size: 1.2rem;
+  max-width: 1000px; /* Ensure content does not exceed this width */
+  width: 100%;
+}
+
+/* Style for the view count section */
+.view-count {
+  text-align: center;
+  margin: 20px 0;
+  color: #d8dee9; /* Light text color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .centered {
+    padding: 0 10px; /* Adjust padding for smaller screens */
+  }
+
+  .cont {
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+}
+
+
+/* Styles for Landing component */
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: #2e3440; /* Dark background to match terminal aesthetics */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Profile styles */
+.profile-container {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items horizontally */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  background-color: #3b4252; /* Slightly lighter background for the profile container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  max-width: 900px;
+  width: 100%; /* Full width within the container */
+}
+
+.profile-picture {
+  width: 300px; /* Adjusted size for terminal-like compact look */
+  height: 300px; /* Adjusted size */
+  overflow: hidden;
+  /* border-radius: 50%;  */
+  margin-bottom: 15px; /* Reduced space between image and text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+.profile-info {
+  text-align: center; /* Center text within profile info */
+}
+
+.name {
+  font-size: 1.8rem; /* Adjusted size for terminal-like compact look */
+  font-weight: bold;
+  color: #eceff4; /* Light text color */
+  margin: 0;
+}
+
+.designation {
+  font-size: 1.2rem; /* Adjusted size */
+  color: #88c0d0; /* Light blue */
+  position: relative;
+  display: inline-block;
+}
+
+.typing-cursor {
+  animation: blink 1s step-start infinite;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.description {
+  font-size: 1rem; /* Adjusted size */
+  color: #e5e9f0; /* Slightly lighter text color */
+  line-height: 1.6;
+  margin-bottom: 15px; /* Reduced space between description and social media */
+  font-weight: 600;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-media a {
+  color: #88c0d0; /* Light blue */
+  font-size: 1.5rem; /* Adjust size as needed */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #81a1c1; /* Slightly darker blue on hover */
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Responsive Design for Landing Component */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 15px;
+  }
+
+  .name {
+    font-size: 1.5rem;
+  }
+
+  .designation {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .social-media a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 10px;
+  }
+
+  .name {
+    font-size: 1.2rem;
+  }
+
+  .designation {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+
+  .social-media a {
+    font-size: 1rem;
+  }
+}
+
+/* Styles for work component */
+
+.work-container {
+  width: 100%;
+  padding: 20px;
+  background-color: #3b4252;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.tab {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #434c5e;
+  border-radius: 8px;
+}
+
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  transition: 0.3s;
+  font-size: 14px;
+  border-radius: 8px;
+  color: #d8dee9;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab button i {
+  font-size: 16px;
+}
+
+.tab button:hover {
+  background-color: #4c566a;
+}
+
+.tab button.active {
+  background-color: #81a1c1;
+  color: #2e3440;
+}
+
+.tabcontent {
+  display: none;
+  padding: 20px;
+  background-color: #4c566a;
+  border-radius: 8px;
+}
+
+.tabcontent.show {
+  display: block;
+}
+
+.job-title {
+  font-weight: bold;
+  text-align: left;
+  position: relative;
+  font-size: 18px;
+  color: #d8dee9;
+}
+
+.time-period {
+  display: block;
+  text-align: right;
+  font-style: italic;
+  color: #a3be8c;
+  font-size: 14px;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+  font-size: 16px;
+  color: #d8dee9;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+ul li strong {
+  color: #eceff4;
+}
+
+ul li u {
+  text-decoration: underline;
+}
+
+ul li .highlight {
+  color: #d86f79;
+  font-weight: 800;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .work-container {
+    padding: 15px;
+  }
+
+  .tab button {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 992px) {
+  .work-container {
+    padding: 10px;
+  }
+
+  .tab button {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  .job-title {
+    font-size: 16px;
+  }
+
+  .time-period {
+    font-size: 12px;
+  }
+
+  ul {
+    font-size: 14px;
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-container {
+    padding: 10px;
+  }
+
+  .tab {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .tab button {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .tabcontent {
+    padding: 10px;
+  }
+
+  .job-title {
+    font-size: 14px;
+  }
+
+  .time-period {
+    font-size: 10px;
+  }
+
+  ul {
+    font-size: 12px;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-container {
+    padding: 5px;
+  }
+
+  .tab button {
+    font-size: 10px;
+    padding: 5px 8px;
+  }
+
+  .tabcontent {
+    padding: 8px;
+  }
+
+  .job-title {
+    font-size: 12px;
+  }
+
+  .time-period {
+    font-size: 10px;
+  }
+
+  ul {
+    font-size: 10px;
+    padding-left: 8px;
+  }
+}
+
+
+/* Styles for Skills component */
+.terminal {
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+  font-family: monospace;
+  padding: 20px;
+  border-radius: 5px;
+  height: 80vh;
+  max-height: 400px;
+  overflow: auto;
+  white-space: pre-wrap;
+  position: relative;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 14px;
+}
+
+.terminal-command {
+  display: block;
+  color: #d8dee9; /* Light color for terminal command */
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #dcdcdc;
+}
+
+.tab-button .fa-icon {
+  margin-right: 8px; /* Adjust spacing between icon and text */
+}
+
+.tab-button.active {
+  color: #ffffff; /* Highlight color for the active tab */
+  background-color: #333333; /* Background color for active tab */
+}
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .work-container {
+    padding: 15px;
+  }
+
+  .tab-button {
+    font-size: 13px; /* Slightly smaller font size */
+    padding: 8px 12px; /* Adjusted padding for better fit */
+  }
+}
+
+@media (max-width: 992px) {
+  .work-container {
+    padding: 10px;
+  }
+
+  .tab-button {
+    font-size: 12px; /* Smaller font size for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .work-container {
+    padding: 5px;
+  }
+
+  .tab {
+    flex-direction: column; /* Stack tabs vertically */
+  }
+
+  .tab-button {
+    font-size: 11px; /* Smaller font size for mobile */
+    padding: 6px 10px; /* Adjusted padding */
+  }
+
+  .terminal {
+    height: auto; /* Adjust height for mobile */
+    max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-container {
+    padding: 5px;
+  }
+
+  .tab-button {
+    font-size: 10px; /* Further reduced font size for very small screens */
+    padding: 5px 8px; /* Adjusted padding */
+  }
+
+  .terminal {
+    padding: 10px; /* Further reduced padding */
+  }
+}
+
+/*Projects Component Styles*/
+.carousel-container {
+  background: #2e3440; /* Dark background to match terminal aesthetics */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 50vh;
+}
+
+.carousel-container p{
+  font-size: 16px;
+}
+
+.carousel-card {
+  background: #3b4252; /* Slightly lighter dark background */
+  color: #dcdcdc; /* Light text color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px 0;
+  min-height: 40vh;
+}
+
+.carousel-card h2 {
+  margin: 0 0 10px;
+}
+
+.carousel-card p {
+  margin: 0 0 20px;
+}
+
+.carousel-card button {
+  background: #5e81ac; /* Button color */
+  color: #2e3440; /* Text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.carousel-button {
+  background: #4c566a; /* Button color */
+  color: #dcdcdc; /* Text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.carousel-buttons {
+  display: flex;
+  justify-content: center; /* Center the items horizontally */
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.github-link {
+  color: #333; /* GitHub icon color */
+  font-size: 24px; /* Icon size */
+  text-decoration: none;
+}
+
+.github-link:hover {
+  color: #000; /* Change color on hover */
+}
+
+/* Ensure buttons in .carousel-buttons have consistent styling */
+.carousel-buttons button {
+  margin: 0;
+}
+
+.tech{
+  font-weight: 700;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.project-icon {
+  font-size: 24px; /* Icon size */
+  color: #5e81ac; /* Icon color */
+}
+
+/*Education styles*/
+.accordion-container {
+  background: #2e3440;
+  color: #dcdcdc;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.accordion-item {
+  margin-bottom: 10px;
+}
+
+.accordion-header {
+  background: #3b4252;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: #dcdcdc solid 0.2px;
+}
+
+.accordion-header h3 {
+  margin: 0;
+  font-size: 18px;
+ 
+}
+
+.accordion-body {
+  /* border: #dcdcdc solid 0.2px; */
+  background: #3b4252;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.accordion-body p {
+  margin: 5px 0; /* Adjust spacing between paragraphs */
+  font-size: 16px; /* Adjusted font size */
+}
+
+.accordion-body .location {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.accordion-body .period {
+  font-style: italic;
+  color: #88c0d0; 
+  font-weight: 600;
+}
+
+.accordion-body .coursework {
+  font-size: 16px; /* Adjusted font size */
+}
+
+
+/*More*/
+
+/* ActivitiesSlider.css */
+.slider-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #3b4252;
+
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+
+.slider-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.slider-image {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10%;
+  border: #1e1e1e solid 0.5px;
+}
+
+.slider-title {
+  font-size: 1.8rem;
+  margin: 10px 0;
+}
+
+.slider-description {
+  font-size: 1rem;
+  margin: 0 10px;
+  width: 40%;
+}
+
+.slider-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
+
+.slider-button.prev {
+  left: 10px;
+}
+
+.slider-button.next {
+  right: 10px;
+}
+
+i{
+  color: #fff;
+}
